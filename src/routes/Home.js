@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from '../components/Movie';
+import styles from './Home.module.css';
 
 function Home(){
     const [loading, setLoading] = useState(true);
@@ -15,10 +16,10 @@ function Home(){
         getMovies();
     },[]);
     return (
-        <div>
+        <div className={styles.container}>
            {loading ? <div>Loading...</div> 
            : (
-                <div>
+                <div className={styles.movies}>
                     {movies.map((movie) => (
                         <Movie
                             posterPath={movie.poster_path}
